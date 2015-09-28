@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:text="@string/okazje_do_wypicia" />
 
     <TextView
@@ -25,41 +25,33 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center"
-        android:clickable="true"
-        android:onClick="today"
-        android:textSize="26sp"
+        android:textSize="36sp"
         android:text="{dzisiaj}" />
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/layout_card"
-        android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="600dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/yellow_post_it"
     >
-       
+    
     <TextView
         android:id="@+id/textview_occasion"
         android:layout_gravity="center"
-    	android:layout_alignParentTop="true"        
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_margin="40dp"
         android:gravity="center"
-        android:textSize="26sp"
+        android:textSize="36sp"
         android:text="{okazja}"
         android:textColor="@android:color/black"
         android:clickable="true"
         android:onClick="onClickOccasion"
 	/>
-
 
     <ImageButton
             android:id="@+id/facebookShareButton"
@@ -74,27 +66,7 @@
             android:background="@drawable/facebook"
             />
 
-    <!--
-    <TextView
-        android:id="@+id/textview_link"
-    	android:layout_alignParentBottom="true"        
-        android:layout_gravity="right"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="right"
-        android:textSize="20sp"
-        android:text="http://wikipedia.pl"
-        android:textColor="#0000ff"
-        android:autoLink="web"
-	/>
-	-->
-    
-    </RelativeLayout>
+    </LinearLayout>
     </LinearLayout>
 
-			
 </RelativeLayout>
