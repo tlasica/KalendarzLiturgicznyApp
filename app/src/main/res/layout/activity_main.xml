@@ -2,6 +2,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/image_logo"
+        android:maxWidth="@dimen/notification_large_icon_width"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/pocieszycielka"
+        android:maxHeight="50dp"
+        />
+
     <!-- Application Content Layout -->
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     	xmlns:tools="http://schemas.android.com/tools"
@@ -10,26 +22,32 @@
     	android:layout_alignParentTop="true"
     	android:orientation="vertical"
     	tools:context=".MainActivity" >
-    
-    <TextView
-        android:id="@+id/textview_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:textSize="20sp"
-        android:text="@string/okazje_na_dzis" />
 
-    <TextView
-        android:id="@+id/textview_current_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:gravity="center"
-        android:clickable="true"
-        android:onClick="today"
-        android:textSize="26sp"
-        android:text="{dzisiaj}" />
 
+        <TextView
+            android:id="@+id/textview_label"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="20sp"
+            android:text="@string/okazje_na_dzis" />
+
+        <TextView
+            android:id="@+id/textview_current_date"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textview_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="left"
+            android:clickable="true"
+            android:onClick="today"
+            android:textSize="26sp"
+            android:text="{dzisiaj}" />
+
+    <!--
     <RelativeLayout
         android:id="@+id/layout_card"
         android:orientation="vertical"
@@ -41,26 +59,27 @@
         android:layout_marginTop="15dp"
         android:background="@drawable/yellow_post_it"
     >
+    -->
        
     <TextView
         android:id="@+id/textview_occasion"
-        android:layout_gravity="center"
-    	android:layout_alignParentTop="true"        
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="20dp"
         android:textSize="26sp"
+        android:lineSpacingMultiplier="1.3"
         android:text="{okazja}"
         android:textColor="@android:color/black"
+        android:textStyle="italic"
         android:clickable="true"
         android:onClick="onClickOccasion"
 	/>
 
-
+    <!--
     <ImageButton
             android:id="@+id/facebookShareButton"
             android:layout_alignParentTop="true"
@@ -73,6 +92,7 @@
             android:onClick="facebookLoginAndShare"
             android:background="@drawable/facebook"
             />
+    -->
 
     <!--
     <TextView
@@ -93,7 +113,7 @@
 	/>
 	-->
     
-    </RelativeLayout>
+    <!--</RelativeLayout> -->
     </LinearLayout>
 
 			

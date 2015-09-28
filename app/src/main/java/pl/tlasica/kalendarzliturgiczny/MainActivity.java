@@ -21,7 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,8 +29,6 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-	//private static final String LINK_FACEBOOK = "http://facebook.com/okazjeapp";
-	
 	private TextView	mCurrDateTextView;
 	private TextView	mOccasionTextView;
 	private Calendar	currDate;
@@ -42,8 +40,7 @@ public class MainActivity extends Activity {
     private long lastUpdateMillis = 0;
 
     final String    APP_URL = "http://bit.ly/okazjeapp";
-    final String    PIC_URL = "https://raw.githubusercontent.com/tlasica/Okazje/master/icon-128.png";
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +86,7 @@ public class MainActivity extends Activity {
 	protected void onStart() {
 		super.onStart();
 		today();
+        Toast.makeText(this.getApplicationContext(), "Puknij do następnego wpisu", Toast.LENGTH_SHORT).show();
 	}
 	
 	@Override
@@ -152,13 +150,25 @@ public class MainActivity extends Activity {
         Log.d("DISPLAY", "xSize=" + xSize);
         Log.d("DISPLAY", "ySize=" + ySize);
 
+        /*
         // adjust card size to 50% of min(width,height)
         ViewGroup layout = (ViewGroup) findViewById(R.id.layout_card);
         ViewGroup.LayoutParams p = layout.getLayoutParams();
         int cardHeight = Math.round( ySize * 0.56f ); 
         p.height = cardHeight;
         layout.requestLayout();
-        
+        */
+
+        ImageView logo = (ImageView) findViewById(R.id.image_logo);
+        if (logo != null) {
+            float alpha = 200.0f;
+            logo.setAlpha(alpha);
+            int maxSize = (int) (xSize * 0.25);
+            logo.setMaxHeight(maxSize);
+            logo.setMaxWidth(maxSize);
+            logo.requestLayout();
+        }
+
         //adjust font size
         TextView textLabel = (TextView) findViewById(R.id.textview_label);
         TextView textOccasion = (TextView) findViewById( R.id.textview_occasion);
@@ -234,12 +244,12 @@ public class MainActivity extends Activity {
             public void onClick(DialogInterface dialog, int id) {
                 Log.d("ADD", "yes!");
                 // Przygotowanie tekstu emaila
-                String text = "Data: " + currentDateStr() + "\n" + "Tekst okazji:";
+                String text = "Data: " + currentDateStr() + "\n" + "Tekst:";
                 // open to send email
                 Intent email = new Intent(Intent.ACTION_VIEW);
                 email.setData(Uri.parse("mailto:"));
                 email.putExtra(Intent.EXTRA_EMAIL, new String[]{"tomek@3kawki.pl"});
-                email.putExtra(Intent.EXTRA_SUBJECT, "[OKAZJE] Propozycja okazji");
+                email.putExtra(Intent.EXTRA_SUBJECT, "[KALENDARZ LITURGICZNY] Propozycja");
                 email.putExtra(Intent.EXTRA_TEXT, text);
                 startActivity(email);
             }
@@ -296,28 +306,20 @@ public class MainActivity extends Activity {
                     new DataUpdater(updateSite(), getApplicationContext(), occasionsDict).execute();
                 }
 
-                // show fb share button
-                findViewById(R.id.facebookShareButton).setVisibility(View.VISIBLE);
             }
             else {
                 Log.d("NETWORK", "network is disconnected");
-                // hide fb share button
-                findViewById(R.id.facebookShareButton).setVisibility(View.INVISIBLE);
             }
 
         }
     };
 
 
-
-
     protected String updateSite() {
         Locale locale = Locale.getDefault();
         String language = locale.getLanguage();
-        String site = "http://okazjedowypicia.herokuapp.com/assets/data/";
-        if (language.equals("en")) return site + "en/";
-        if (language.equals("pl")) return site;
-        else return site;
+        String site = "http://okazjedowypicia.herokuapp.com/assets/data/kalendarzliturgiczny/pl/";
+        return site;
     }
 
 }

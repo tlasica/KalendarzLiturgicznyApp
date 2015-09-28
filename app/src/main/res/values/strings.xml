@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Kalendarz Liturgiczny</string>
-    <string name="okazje_na_dzis">Modlitwy na dziś</string>
+    <string name="okazje_na_dzis">Kalendarz\nLiturgiczny</string>
     <string name="menu_item_add_occasion">Dodaj...</string>
     <string name="add_occasion_text">
         Wyślij na adres tomek@3kawki.pl z datą i treścią.
