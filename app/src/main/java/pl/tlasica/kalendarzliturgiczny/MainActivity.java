@@ -16,26 +16,24 @@ import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 
 public class MainActivity extends Activity {
 
-	private TextView	mCurrDateTextView;
+	private BootstrapButton       mCurrDateButton;
 	private TextView	mOccasionTextView;
 	private Calendar	currDate;
 	private String		currOccasion;
 	private Occasions occasionsDict;
 	private ShareActionProvider mShareActionProvider;
-	private GestureDetectorCompat 	mDetector;
 
     private long lastUpdateMillis = 0;
 
@@ -46,10 +44,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
-        
-		mDetector = new GestureDetectorCompat(this, new MyGestureListener() );
-        
-        mCurrDateTextView = (TextView) findViewById( R.id.textview_current_date);
+
+        mCurrDateButton = (BootstrapButton) findViewById( R.id.button_date_curr);
         mOccasionTextView = (TextView) findViewById( R.id.textview_occasion);
                     
         occasionsDict = new Occasions( new OccasionsDataFromDb(getApplicationContext()) );
@@ -112,13 +108,15 @@ public class MainActivity extends Activity {
     }
 
 
-    @Override 
-    public boolean onTouchEvent(MotionEvent event){ 
-        this.mDetector.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }	
-	
-    public void today(View view) {
+    public void onPrevDate(View view) {
+        prevDay();
+    }
+
+    public void onNextDate(View view) {
+        nextDay();
+    }
+
+    public void onCurrDate(View view) {
     	today();
     }
     
@@ -150,24 +148,6 @@ public class MainActivity extends Activity {
         Log.d("DISPLAY", "xSize=" + xSize);
         Log.d("DISPLAY", "ySize=" + ySize);
 
-        /*
-        // adjust card size to 50% of min(width,height)
-        ViewGroup layout = (ViewGroup) findViewById(R.id.layout_card);
-        ViewGroup.LayoutParams p = layout.getLayoutParams();
-        int cardHeight = Math.round( ySize * 0.56f ); 
-        p.height = cardHeight;
-        layout.requestLayout();
-        */
-
-        ImageView logo = (ImageView) findViewById(R.id.image_logo);
-        if (logo != null) {
-            float alpha = 200.0f;
-            logo.setAlpha(alpha);
-            int maxSize = (int) (xSize * 0.25);
-            logo.setMaxHeight(maxSize);
-            logo.setMaxWidth(maxSize);
-            logo.requestLayout();
-        }
 
         //adjust font size
         TextView textLabel = (TextView) findViewById(R.id.textview_label);
@@ -192,7 +172,7 @@ public class MainActivity extends Activity {
 
 	private void updateCurrentDate(Calendar day) {
 		currDate = day;
-		mCurrDateTextView.setText( currentDateStr() );
+		mCurrDateButton.setText( currentDateStr() );
 	}
 
 	void updateOccasion() {
@@ -266,26 +246,6 @@ public class MainActivity extends Activity {
 
 
     }
-
-    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
-	       
-        @Override
-        public boolean onFling(MotionEvent event1, MotionEvent event2, 
-                float velocityX, float velocityY) {
-        	float x1 = event1.getX();
-        	float x2 = event2.getX();
-        	
-        	if (x2 - x1 > 150.0) {
-        		prevDay();
-        	}
-        	if (x2 - x1 < -150.0) {
-        		nextDay();
-        	}
-            return true;
-        }
-    }
-
-
 
     private BroadcastReceiver mConnReceiver = new BroadcastReceiver() {
         @Override

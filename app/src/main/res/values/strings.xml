@@ -24,4 +24,6 @@
     <string name="updater_msg_inprogress">Aktualizuję okazje...</string>
     <string name="celebration_internet">Za dostęp do Internetu! (aby się okazje zaktualizowały)</string>
     <string name="celebration_author">Za autora aplikacji!</string>
+    <string name="button_prev">&lt;&lt;</string>
+    <string name="button_next">&gt;&gt;</string>
 </resources>
