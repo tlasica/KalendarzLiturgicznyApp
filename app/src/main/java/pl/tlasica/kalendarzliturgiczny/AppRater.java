@@ -15,12 +15,12 @@ import android.widget.TextView;
  * http://www.androidsnippets.com/prompt-engaged-users-to-rate-your-app-in-the-android-market-appirater
  */
 public class AppRater {
-    private final static String APP_PNAME = "pl.tlasica.okazje";
+    private final static String APP_PNAME = "pl.tlasica.kalendarzliturgiczny";
 
     private final static int DAYS_UNTIL_PROMPT = 3;
     private final static int LAUNCHES_UNTIL_PROMPT = 3;
 
-    private final static String PREF_FILE_NAME = "pl.tlasica.okazje.apprater";
+    private final static String PREF_FILE_NAME = "pl.tlasica.kalendarzliturgiczny.apprater";
 
     private final Context mContext;
     private final SharedPreferences prefs;

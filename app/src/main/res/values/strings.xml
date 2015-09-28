@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Okazje</string>
-    <string name="okazje_do_wypicia">Okazje do wypicia na dziś</string>
+    <string name="app_name">Kalendarz Liturgiczny</string>
+    <string name="okazje_na_dzis">Modlitwy na dziś</string>
     <string name="menu_item_add_occasion">Dodaj...</string>
     <string name="add_occasion_text">
-        Możesz dodać okazję od siebie!
-        Zobaczą ją wszyscy użytkownicy aplikacji!
-        \n\n
-        Wystarczy wysłać do tomek@3kawki.pl email z datą i treścią okazji.
-        \n\n
-        Jeśli okazja będzie fajna i ciekawa to ją dodam.
-        Nie miej mi za złe, jeśli ją odrzucę :-(
+        Wyślij na adres tomek@3kawki.pl z datą i treścią.
         \n\n
         Czy chcesz wysłać teraz?
     </string>
     <string name="add_occasion_bttn_yes">Tak!</string>
     <string name="add_occasion_bttn_no">Nie</string>
     <!-- FACEBOOK APP ID -->
-    <string name="fb_app_id">532537796853015"</string>
     <string name="apprater_title">"Oceń aplikację"</string>
     <string name="apprater_text">
         Jeśli podobają Ci się Okazję bardzo prosimy o ocenę.
@@ -31,5 +24,4 @@
     <string name="updater_msg_inprogress">Aktualizuję okazje...</string>
     <string name="celebration_internet">Za dostęp do Internetu! (aby się okazje zaktualizowały)</string>
     <string name="celebration_author">Za autora aplikacji!</string>
-    <string name="fb_share_description">Niecodzienne okazje co dzień!</string>
 </resources>

@@ -1,4 +1,4 @@
-package pl.tlasica.okazje;
+package pl.tlasica.kalendarzliturgiczny;
 
 import android.content.Context;
 import android.widget.LinearLayout;
