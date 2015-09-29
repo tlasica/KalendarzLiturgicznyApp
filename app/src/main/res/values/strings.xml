@@ -14,16 +14,15 @@
     <!-- FACEBOOK APP ID -->
     <string name="apprater_title">"Oceń aplikację"</string>
     <string name="apprater_text">
-        Jeśli podobają Ci się Okazję bardzo prosimy o ocenę.
-        Pamiętaj, że możesz proponować własne okazje :-)
+        Jeśli podoba Ci się Kalendarz Liturgiczny bardzo prosimy o ocenę.
     </string>
     <string name="apprater_btn_rate">"Oceń"</string>
     <string name="apprater_btn_later">"Później"</string>
     <string name="apprater_title_btn_no">"Nie, dziękuję"</string>
-    <string name="update_msg_updated">Dane zaktualizowane.\nPuknij aby zmienić okazję.</string>
-    <string name="updater_msg_inprogress">Aktualizuję okazje...</string>
-    <string name="celebration_internet">Za dostęp do Internetu! (aby się okazje zaktualizowały)</string>
-    <string name="celebration_author">Za autora aplikacji!</string>
+    <string name="update_msg_updated">Dane zaktualizowane.\nPuknij aby czytać.</string>
+    <string name="updater_msg_inprogress">Aktualizuję dane...</string>
+    <string name="celebration_internet">Brak wpisu na ten dzień (czyżby problem z Internetem)</string>
+    <string name="celebration_author">Może brat Tomasz Z. zaniedbał swoje obowiązki?</string>
     <string name="button_prev">&lt;&lt;</string>
     <string name="button_next">&gt;&gt;</string>
 </resources>

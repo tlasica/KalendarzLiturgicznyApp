@@ -11,14 +11,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.view.GestureDetectorCompat;
 import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
@@ -37,7 +35,7 @@ public class MainActivity extends Activity {
 
     private long lastUpdateMillis = 0;
 
-    final String    APP_URL = "http://bit.ly/okazjeapp";
+    final String    APP_URL = "http://bit.ly/kallit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +80,7 @@ public class MainActivity extends Activity {
 	protected void onStart() {
 		super.onStart();
 		today();
-        Toast.makeText(this.getApplicationContext(), "Puknij do następnego wpisu", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this.getApplicationContext(), "Pukaj aby przewijać wersy", Toast.LENGTH_SHORT).show();
 	}
 	
 	@Override
@@ -176,7 +174,7 @@ public class MainActivity extends Activity {
 	}
 
 	void updateOccasion() {
-		currOccasion = occasionsDict.getRandomOccasion( currDate );
+		currOccasion = occasionsDict.getNextOccasion(currDate);
 		mOccasionTextView.setText( currOccasion );
 		updateShareIntent( currOccasion );
 	}
@@ -191,17 +189,15 @@ public class MainActivity extends Activity {
 	}
 
 	private String createShareContentText(String occ) {
-		String content = String.format("Okazja na %s:\n%s\n\n" +
-				"Okazje Android App: %s\n", currentDateStr(), occ, APP_URL);
+        String content = "Kalendarz Liturgiczny na Twoim smartfonie: " + APP_URL;
 		return content;
 	}
 
 
 	// Call to update the share intent
 	private void updateShareIntent(String occ) {
-		String subject = "Okazja na " + currentDateStr();
+		String subject = "Kalendarz Liturgiczny Android App";
 		String content = createShareContentText(occ);
-		Log.d("SHARE", content);
 						
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
