@@ -27,7 +27,7 @@ public class Occasions {
 		enforceReload = true;
 	}
 	
-	public String getRandomOccasion(Calendar cal) {
+	public String getNextOccasion(Calendar cal) {
 		int num = Occasions.dateToDayNum(cal);
 		if (enforceReload || (todayNum != num)) {
 			prepareDayForBrowsing( num );
@@ -46,7 +46,6 @@ public class Occasions {
 		if (todayOccasions == null) {
 			todayOccasions = UPS_STH_WENT_WRONG;
 		}
-		java.util.Collections.shuffle( todayOccasions );			
 	}
 	
 	private void nextOccasion() {
